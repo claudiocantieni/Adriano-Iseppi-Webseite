@@ -11,18 +11,10 @@
 </head>
 <body>
 
-<!-- ══ NAV ══════════════════════════════════════════ -->
+<!-- NAV -->
 <nav id="mainNav">
   <div class="container nav-inner">
-    <div class="nav-logo">
-      Adriano <span>Iseppi</span>
-      <!-- St. Moritz Silhouette -->
-      <img
-        class="nav-silhouette"
-        src="data:image/png;base64,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"
-        alt="St. Moritz Silhouette"
-      >
-    </div>
+    <a href="#hero" class="nav-logo">Adriano <span>Iseppi</span></a>
     <button class="nav-burger" id="navBurger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
@@ -36,37 +28,14 @@
   </div>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════ -->
+<!-- HERO — Video anstelle Portrait -->
 <section id="hero">
-  <!-- Autoplay background video -->
-  <div class="hero-video-bg">
-    <!--
-      AUTOPLAY VIDEO: Ersetzen Sie src mit Ihrem Video-Pfad.
-      <video autoplay muted loop playsinline src="videos/stmoritz-bg.mp4"></video>
-
-      ODER YouTube Embed mit autoplay:
-      <iframe src="https://www.youtube.com/embed/IHR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=IHR_VIDEO_ID&controls=0&showinfo=0" allow="autoplay" allowfullscreen></iframe>
-    -->
-    <div class="hero-video-placeholder">
-      <div class="hvp-inner">
-        <svg viewBox="0 0 80 80" fill="none" style="width:64px;opacity:.4">
-          <circle cx="40" cy="40" r="39" stroke="white" stroke-width="1.5"/>
-          <path d="M32 26L58 40L32 54V26Z" fill="#F5C518"/>
-        </svg>
-        <p>Hintergrundvideo hier einfügen</p>
-        <small>Empfehlung: MP4, autoplay, muted, loop</small>
-      </div>
-    </div>
-    <div class="hero-video-overlay"></div>
-  </div>
-
   <div class="container hero-content">
     <div class="hero-text reveal">
-      <div class="hero-badge">Kandidatur 2025 · St. Moritz</div>
+      <div class="hero-badge">Kandidatur 2026 · St. Moritz</div>
       <h1 class="hero-name">Adriano<br><em>Iseppi</em></h1>
       <p class="hero-subtitle">
-        Kandidat für das Amt des Gemeindepräsidenten von St. Moritz –
-        für eine starke, zukunftsorientierte Gemeinde mit Herz und Weitblick.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kandidat Gemeindepräsidium St. Moritz 2026.
       </p>
       <a href="#motivation" class="hero-cta">
         Mehr erfahren
@@ -75,50 +44,81 @@
         </svg>
       </a>
     </div>
-    <div class="hero-photo reveal reveal-delay-2">
-      <div class="photo-frame">
-        <!-- src="fotos/portrait.jpg" einfügen -->
-        <img src="" alt="Adriano Iseppi" id="heroPortrait">
-        <div class="ph-placeholder"><span class="ph-icon">🖼</span><span>Portraitfoto hier einfügen</span></div>
+
+    <!-- VIDEO — ersetzt Portrait -->
+    <div class="hero-video-box">
+      
+      <!--
+        Video einfügen — wählen Sie eine Option:
+
+        Option A – eigenes Video (autoplay, muted, loop):
+        <video src="videos/adriano.mp4" autoplay muted loop playsinline></video>
+
+        Option B – YouTube autoplay:
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0" allow="autoplay" allowfullscreen></iframe>
+
+        Option C – mit Steuerung (kein autoplay):
+        <video src="videos/adriano.mp4" controls poster="fotos/thumb.jpg" playsinline></video>
+      -->
+      <div class="hero-video-placeholder">
+        <div class="vp-play-btn">
+          <svg viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="39" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <path d="M32 26L58 40L32 54V26Z" fill="#F5C518"/>
+          </svg>
+        </div>
+        <p>Video hier einfügen</p>
+        <small>MP4 · oder YouTube / Vimeo iframe</small>
       </div>
     </div>
   </div>
 
-  <!-- Silhouette am unteren Rand -->
-  <div class="hero-skyline">
-    <img
-      src="data:image/png;base64,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"
-      alt="St. Moritz Skyline"
-    >
+  <!-- Silhouette Dekoration unten -->
+  <div class="hero-skyline-bar">
+    <img src="skyline1.png" alt="" class="skyline-top">
+    <img src="skyline2.png" alt="" class="skyline-bottom">
   </div>
 </section>
 
-<!-- ══ MOTIVATION ════════════════════════════════════ -->
+<!-- MOTIVATION -->
 <section id="motivation">
   <div class="container">
     <p class="section-label reveal">Warum ich kandidiere</p>
     <h2 class="section-title reveal reveal-delay-1">Meine Motivation</h2>
-    <div class="motivation-grid">
-      <div class="motivation-text reveal">
-        <p>[Fügen Sie hier Ihren persönlichen Text ein – warum Sie für das Amt des Gemeindepräsidenten kandidieren, was Sie bewegt und welche Vision Sie für St. Moritz haben.]</p>
-        <p>[Zweiter Absatz: Beschreiben Sie Ihre Verbundenheit mit der Gemeinde, Ihre Erfahrungen und was Sie konkret für die Bevölkerung von St. Moritz erreichen möchten.]</p>
-        <p>[Dritter Absatz: Ein persönlicher Abschluss – was St. Moritz für Sie bedeutet und warum jetzt der richtige Zeitpunkt für Ihre Kandidatur ist.]</p>
+
+    <div class="motivation-main reveal">
+      <!-- Grosses Portraitfoto links -->
+      <div class="motivation-portrait">
+        <!-- src="fotos/portrait.jpg" einfügen -->
+        <img src="" alt="Adriano Iseppi" id="motivPortrait">
+        <div class="ph-placeholder">
+          <span class="ph-icon">🖼</span>
+          <span>Portraitfoto hier einfügen</span>
+        </div>
       </div>
-      <div class="motivation-quote reveal reveal-delay-2">
-        <blockquote>„[Ihr persönliches Zitat oder Leitmotto für die Kandidatur einfügen.]"</blockquote>
-        <cite>— Adriano Iseppi</cite>
+
+      <!-- Text + Zitat rechts -->
+      <div class="motivation-right">
+        <div class="motivation-text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
+          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="motivation-quote">
+          <blockquote>„Zitat / Leitmotto"</blockquote>
+          <cite>— Adriano Iseppi</cite>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ INLINE FOTO BANNER ════════════════════════════ -->
+<!-- INLINE FOTO BANNER -->
 <div class="inline-photo-banner">
-  <!-- src="fotos/aktion.jpg" einfügen – Querformat, min 1400px -->
   <img src="" alt="Adriano Iseppi" id="bannerPhoto" class="banner-img">
-  <div class="photo-banner-placeholder" id="bannerPh">
+  <div class="photo-banner-placeholder">
     <span class="ph-icon">📷</span>
-    <span>Stimmungsfoto hier einfügen<br><small>Empfehlung: Querformat, min. 1400 × 600 px</small></span>
+    <span>Panoramafoto<br><small>Querformat, min. 1400 × 600 px</small></span>
   </div>
   <div class="photo-banner-overlay">
     <div class="container">
@@ -127,7 +127,7 @@
   </div>
 </div>
 
-<!-- ══ ZUR PERSON ════════════════════════════════════ -->
+<!-- ZUR PERSON -->
 <section id="person">
   <div class="container">
     <p class="section-label reveal">Zur Person</p>
@@ -135,8 +135,8 @@
     <div class="person-grid">
       <div class="reveal">
         <div class="person-bio">
-          <p>Hier können Sie Ihren persönlichen Text einfügen – Ihre Herkunft, Ihre Familie, Ihre Verbundenheit mit St. Moritz und dem Engadin.</p>
-          <p>Ergänzen Sie, was Sie antreibt, was Ihnen wichtig ist und warum Sie sich für diese Gemeinde einsetzen möchten.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <ul class="fact-list">
           <li><span class="fact-label">Wohnort</span><span class="fact-value">St. Moritz</span></li>
@@ -150,18 +150,18 @@
         <div class="timeline">
           <div class="timeline-item">
             <p class="timeline-year">Jahr</p>
-            <p class="timeline-desc">Beschreibung einer wichtigen Station in Ihrem Leben oder Ihrer Karriere.</p>
+            <p class="timeline-desc">kurzer Lebenslauf.</p>
           </div>
           <div class="timeline-item">
             <p class="timeline-year">Jahr</p>
-            <p class="timeline-desc">Weitere Station – politisches Engagement, Vereinstätigkeit, Berufliches.</p>
+            <p class="timeline-desc">Weitere Station</p>
           </div>
           <div class="timeline-item">
-            <p class="timeline-year">Seit Jahr</p>
-            <p class="timeline-desc">OK-Präsident Engiadina Nordic Sport Events – Ihre aktuelle Tätigkeit.</p>
+            <p class="timeline-year"> Jahr</p>
+            <p class="timeline-desc"> aktuelle Tätigkeit.</p>
           </div>
           <div class="timeline-item">
-            <p class="timeline-year">2025</p>
+            <p class="timeline-year">2026</p>
             <p class="timeline-desc">Kandidatur für das Gemeindepräsidium St. Moritz.</p>
           </div>
         </div>
@@ -170,22 +170,22 @@
   </div>
 </section>
 
-<!-- ══ ZITAT BANNER ══════════════════════════════════ -->
+<!-- ZITAT BANNER -->
 <div class="quote-banner">
   <div class="container">
     <div class="quote-banner-inner reveal">
-      <svg class="quote-mark" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="quote-mark" viewBox="0 0 52 40" fill="none" aria-hidden="true">
         <path d="M0 40V24C0 10.2 7.5 2.7 22.5 0L25 4.4C19 5.7 15 9.3 14 15H22.5V40H0ZM29.5 40V24C29.5 10.2 37 2.7 52 0L54.5 4.4C48.5 5.7 44.5 9.3 43.5 15H52V40H29.5Z" fill="currentColor"/>
       </svg>
       <blockquote class="quote-banner-text">
-        „St. Moritz ist mehr als ein Weltklasse-Ferienort – es ist unsere Heimat, unsere Gemeinschaft. Für diese Gemeinschaft möchte ich Verantwortung tragen."
+        „Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       </blockquote>
-      <cite class="quote-banner-cite">— Adriano Iseppi</cite>
+      <cite class="quote-banner-cite">— Person</cite>
     </div>
   </div>
 </div>
 
-<!-- ══ FOKUSGEBIETE ══════════════════════════════════ -->
+<!-- FOKUSGEBIETE -->
 <section id="fokus">
   <div class="container">
     <p class="section-label reveal">Schwerpunkte</p>
@@ -194,67 +194,64 @@
       <div class="fokus-item reveal">
         <div class="fokus-number">01</div>
         <div class="fokus-content">
-          <h3>[Thema 1 – z.B. Wohnen & Infrastruktur]</h3>
-          <p>[Kurze Beschreibung Ihres Standpunkts und Ihrer Pläne.]</p>
+          <h3>Thema 1 – Lorem ipsum</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="fokus-item reveal reveal-delay-1">
         <div class="fokus-number">02</div>
         <div class="fokus-content">
-          <h3>[Thema 2 – z.B. Tourismus & Wirtschaft]</h3>
-          <p>[Wie sehen Sie die wirtschaftliche Zukunft von St. Moritz?]</p>
+          <h3>Thema 2 – Lorem ipsum</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="fokus-item reveal reveal-delay-2">
         <div class="fokus-number">03</div>
         <div class="fokus-content">
-          <h3>[Thema 3 – z.B. Natur & Nachhaltigkeit]</h3>
-          <p>[Wie schützen wir die Natur rund um St. Moritz für künftige Generationen?]</p>
+          <h3>Thema 3 – Lorem ipsum dolor</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="fokus-item reveal reveal-delay-3">
         <div class="fokus-number">04</div>
         <div class="fokus-content">
-          <h3>[Thema 4 – z.B. Gesellschaft & Zusammenhalt]</h3>
-          <p>[Wie stärken wir den sozialen Zusammenhalt in der Gemeinde?]</p>
+          <h3>Thema 4 – Lorem ipsum dolor</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ INLINE VIDEO ═══════════════════════════════════ -->
+<!-- VIDEO SEKTION (Adriano im Gespräch) -->
 <section class="video-section" id="media">
   <div class="container">
     <p class="section-label reveal">Einblick</p>
-    <h2 class="section-title reveal reveal-delay-1">Adriano im Gespräch</h2>
-    <p class="video-intro reveal reveal-delay-2">Hören Sie Adriano Iseppi in eigenen Worten – was ihn antreibt und was er für St. Moritz erreichen möchte.</p>
+    <h2 class="section-title reveal reveal-delay-1">Video</h2>
+    <p class="video-intro reveal reveal-delay-2">Video – Interview / Vorstellung</p>
   </div>
   <div class="video-fullwidth reveal reveal-delay-2">
     <!--
-      Option A – eigenes Video (mit Steuerung):
-      <video src="videos/adriano.mp4" controls poster="fotos/video-thumb.jpg" playsinline></video>
+      Option A – eigenes Video mit Steuerung:
+      <video src="videos/adriano-interview.mp4" controls poster="fotos/video-thumb.jpg" playsinline></video>
 
       Option B – YouTube:
       <iframe src="https://www.youtube.com/embed/IHR_VIDEO_ID" allowfullscreen></iframe>
-
-      Option C – Vimeo:
-      <iframe src="https://player.vimeo.com/video/IHR_VIDEO_ID" allowfullscreen></iframe>
     -->
-    <div class="video-placeholder-big" id="videoPh">
+    <div class="video-placeholder-big">
       <div class="vp-play-btn">
         <svg viewBox="0 0 80 80" fill="none">
           <circle cx="40" cy="40" r="39" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
           <path d="M32 26L58 40L32 54V26Z" fill="#F5C518"/>
         </svg>
       </div>
-      <p>Video hier einfügen</p>
+      <p>Interview-Video hier einfügen</p>
       <small>MP4 · oder YouTube / Vimeo iframe</small>
     </div>
   </div>
 </section>
 
-<!-- ══ EINZELFOTO ════════════════════════════════════ -->
+<!-- EINZELFOTO -->
 <section class="single-photo-section">
   <div class="container">
     <p class="section-label reveal">Impressionen</p>
@@ -262,29 +259,29 @@
   </div>
   <div class="single-photo-wrap reveal reveal-delay-2">
     <!-- src="fotos/impression.jpg" einfügen -->
-    <img src="" alt="Adriano Iseppi – Impression" id="singlePhoto">
+    <img src="" alt="Adriano Iseppi" id="singlePhoto">
     <div class="single-photo-ph">
       <span class="ph-icon">📷</span>
-      <span>Ihr Foto hier einfügen<br><small>Empfehlung: Querformat, min. 1400 × 700 px</small></span>
+      <span>Ihr Foto hier einfügen<br><small>Querformat, min. 1400 × 700 px</small></span>
     </div>
     <div class="single-photo-overlay"></div>
   </div>
 </section>
 
-<!-- ══ KONTAKT ═══════════════════════════════════════ -->
+<!-- KONTAKT -->
 <section id="kontakt">
   <div class="container">
-    <p class="section-label reveal" style="color:var(--stm-yellow)">Nehmen Sie Kontakt auf</p>
+    <!--<p class="section-label reveal" style="color:var(--stm-yellow)">Nehmen Sie Kontakt auf</p>-->
     <h2 class="section-title white reveal reveal-delay-1">Kontakt</h2>
     <div class="kontakt-inner">
       <div class="kontakt-info reveal">
         <h3>Adriano Iseppi</h3>
-        <p>Kandidat für das Amt des Gemeindepräsidenten<br>Gemeinde St. Moritz</p>
-        <p style="margin-top:1.5rem">📧 <a href="mailto:info@adriano-iseppi.ch">info@adriano-iseppi.ch</a></p>
+        
+        <p style="margin-top:1.5rem">📧 <a href="mailto:adriano.iseppi@bluewin.ch">adriano.iseppi@bluewin.ch</a></p>
         <p>📞 <a href="tel:+41000000000">+41 00 000 00 00</a></p>
         <p>📍 St. Moritz, Graubünden</p>
         <p class="social-row">
-          Folgen Sie der Kampagne:<br>
+          Social Media:<br>
           <a href="#">Instagram</a> &nbsp;·&nbsp;
           <a href="#">Facebook</a> &nbsp;·&nbsp;
           <a href="#">LinkedIn</a>
@@ -298,14 +295,14 @@
           </div>
           <input type="email" placeholder="E-Mail-Adresse" required>
           <input type="text" placeholder="Betreff">
-          <textarea placeholder="Ihre Nachricht an Adriano Iseppi…"></textarea>
+          <textarea placeholder=" Nachricht eingeben…"></textarea>
           <button type="submit" class="btn-submit">Nachricht senden →</button>
         </form>
       </div>
     </div>
     <footer>
-      <div class="footer-logo">Adriano <span>Iseppi</span> · Gemeindepräsident St. Moritz</div>
-      <div>© 2025 Adriano Iseppi · Alle Rechte vorbehalten</div>
+      <div class="footer-logo">Adriano <span>Iseppi</span></div>
+      <div>© 2026 Adriano Iseppi · Alle Rechte vorbehalten</div>
     </footer>
   </div>
 </section>
@@ -325,6 +322,7 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // Show real images / hide placeholder when src is set
   document.querySelectorAll('img').forEach(img => {
     const src = img.getAttribute('src');
     if (src && src !== '' && !src.startsWith('data:')) {

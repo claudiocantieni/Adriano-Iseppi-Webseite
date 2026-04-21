@@ -251,15 +251,25 @@ nav.scrolled {
 .video-stage.show-fun .video-panel:not(.video-panel--fun) { transform:translateX(-100%); }
 .video-stage.show-fun .video-panel--fun { transform:translateX(-100%); }
 
-.video-wrap { position:relative; display:inline-block; max-width:100%; }
-.video-wrap video { width:auto; max-width:100%; height:auto; max-height:780px; display:block; }
-.video-wrap--iframe { width:100%; display:flex; justify-content:center; }
-.video-wrap--iframe iframe { width:100%; aspect-ratio:16/9; border:none; display:block; max-width:960px; }
+/* Quadratischer Container – schneidet 16:9-Letterbox links/rechts weg */
+.video-wrap--bunny {
+  position:relative; overflow:hidden; background:#fff; margin:0 auto;
+  height:min(56.25vw, 780px); width:min(56.25vw, 780px);
+}
+.video-wrap--bunny > video {
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  height:100%; width:auto; display:block;
+}
+.video-wrap--bunny > iframe {
+  position:absolute; top:0; left:50%; transform:translateX(-50%);
+  height:100%; width:calc(100% * 16 / 9); border:none;
+}
+.video-shield { position:absolute; inset:0; z-index:2; background:transparent; cursor:pointer; }
 
-/* Fun video: centered vertically in panel */
+/* Fun video: 16:9 normal */
 .video-panel--fun { display:flex; align-items:center; flex-direction:column; justify-content:center; }
-.video-wrap--fun { width:100%; display:flex; justify-content:center; }
-.video-wrap--fun video { width:auto; max-width:100%; height:auto; max-height:780px; display:block; }
+.video-wrap--fun { width:100%; display:block; }
+.video-wrap--fun video { width:100%; height:56.25vw; max-height:780px; display:block; }
 
 /* Easter-egg & Back Buttons */
 .egg-btn {
@@ -283,7 +293,7 @@ nav.scrolled {
 .back-btn:hover { background:#36468a; transform:translateY(-2px); }
 .video-play-overlay {
   position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
-  width:144px; height:144px;
+  width:144px; height:144px; z-index:3;
   display:flex; align-items:center; justify-content:center;
   background:var(--stm-yellow); color:var(--stm-blue);
   border:none; border-radius:4px; cursor:pointer;
@@ -389,10 +399,12 @@ footer { margin-top:5rem; padding-top:2rem; border-top:1px solid rgba(255,255,25
   .hero-subtitle { font-size:1rem; margin-bottom:1.6rem; }
   .hero-badge { font-size:.62rem; }
   .fc-pill { font-size:.85rem; }
+  .video-wrap--bunny { width:100vw; height:100vw; max-height:none; }
+  .video-wrap--fun video { height:56.25vw; max-height:none; }
   .video-play-overlay { width:72px; height:72px; bottom:1.5rem; }
   .video-play-overlay svg { width:32px; height:32px; }
   /* Buttons unter Video auf gelbem Hintergrund, klein */
-  .video-panel { flex-wrap:wrap; }
+  .video-panel { flex-wrap:wrap; background:var(--stm-yellow); }
   .egg-btn, .back-btn {
     position:static;
     font-size:.72rem; padding:.45rem 1rem;

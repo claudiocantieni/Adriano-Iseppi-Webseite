@@ -11,10 +11,11 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adrianoiseppi.ch/">
-  <meta property="og:title" content="Adriano Iseppi – Gemeindepräsident St. Moritz 2026">
+  <meta property="og:title" content="Adriano Iseppi – Kandidat Gemeindepräsident St. Moritz 2026">
   <meta property="og:description" content="Adriano Iseppi kandidiert als Gemeindepräsident St. Moritz 2026. Bündner, Teamplayer, Macher. Inavaunt San Murezzan!">
   <meta property="og:image" content="https://adrianoiseppi.ch/IMG_9830_2.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -362,24 +363,32 @@
 
     <!-- Politisches Video (default sichtbar) -->
     <div class="video-panel" id="panelPolitik">
-      <div class="video-wrap">
-        <video id="heroVideo" src="video.mp4" muted playsinline loop></video>
+      <div class="video-wrap video-wrap--bunny">
+        <video id="heroVideo"
+          src="https://vz-d82cdf0a-23c.b-cdn.net/da1656bb-ef6c-49cc-a04a-54eaffc18ccf/play_720p.mp4"
+          muted playsinline loop preload="metadata"></video>
+        <iframe id="heroFrame" src="" style="display:none;"
+          data-src="https://iframe.mediadelivery.net/embed/642467/da1656bb-ef6c-49cc-a04a-54eaffc18ccf?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+          allowfullscreen="true"
+          title="Adriano Iseppi – Video"></iframe>
+        <div class="video-shield" id="videoShield"></div>
         <button class="video-play-overlay" id="videoPlayBtn" aria-label="Mit Ton abspielen">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </button>
       </div>
-      <!-- Easter-egg Button unten rechts -->
       <button class="egg-btn" id="eggBtn" title="Lustiges Video gefällig?">
         😉 Lustiges Video gefällig?
       </button>
     </div>
 
-    <!-- Spassvideo (anfangs versteckt, slides rein) -->
+    <!-- Spassvideo (anfangs versteckt) -->
     <div class="video-panel video-panel--fun" id="panelFun">
       <div class="video-wrap video-wrap--fun">
-        <video id="funVideo" src="videosrf.mp4" controls playsinline></video>
+        <video id="funVideo"
+          src="https://vz-d82cdf0a-23c.b-cdn.net/777dc199-786b-42d8-b640-aa51d773caea/play_720p.mp4"
+          controls playsinline preload="metadata"></video>
       </div>
-      <!-- Zurück-Button unten links -->
       <button class="back-btn" id="backBtn">
         ← Zurück zur Politik
       </button>
@@ -519,59 +528,74 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Easter-egg: slide zwischen politischem und Spassvideo
   (function() {
-    const stage   = document.querySelector('.video-stage');
-    const eggBtn  = document.getElementById('eggBtn');
-    const backBtn = document.getElementById('backBtn');
-    if (!stage || !eggBtn || !backBtn) return;
-    const politikVideo = document.getElementById('heroVideo');
-    const funVideo     = document.getElementById('funVideo');
+    const heroVideo = document.getElementById('heroVideo');
+    const heroFrame = document.getElementById('heroFrame');
+    const shield    = document.getElementById('videoShield');
+    const btn       = document.getElementById('videoPlayBtn');
+    const stage     = document.querySelector('.video-stage');
+    const eggBtn    = document.getElementById('eggBtn');
+    const backBtn   = document.getElementById('backBtn');
+    const funVideo  = document.getElementById('funVideo');
+    if (!heroVideo) return;
 
-    eggBtn.addEventListener('click', function() {
-      if (politikVideo) politikVideo.pause();
-      stage.classList.add('show-fun');
-      if (funVideo) { funVideo.currentTime = 0; funVideo.play(); }
-    });
-    backBtn.addEventListener('click', function() {
-      if (funVideo) funVideo.pause();
-      stage.classList.remove('show-fun');
-      if (politikVideo) politikVideo.play();
-    });
-  })();
+    const SOUND_SRC = heroFrame ? heroFrame.dataset.src : '';
 
-  // Video: spielt erst wenn Abschnitt sichtbar, dann stumm als Loop
-  (function() {
-    const video = document.getElementById('heroVideo');
-    const btn   = document.getElementById('videoPlayBtn');
-    if (!video || !btn) return;
+    // Autoplay stumm wenn Sektion sichtbar, pause wenn nicht
+    const section = document.querySelector('.video-section');
+    if (section) {
+      const obs = new IntersectionObserver(function(entries) {
+        entries[0].isIntersecting ? heroVideo.play().catch(function(){}) : heroVideo.pause();
+      }, { threshold: 0.25 });
+      obs.observe(section);
+    }
 
-    const observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          video.play();
+    // Shield-Klick: im Normal-Zustand → Play mit Ton; nach Zurück → Loop fortsetzen
+    if (shield) {
+      shield.addEventListener('click', function() {
+        if (btn && btn.style.display !== 'none') {
+          btn.click();
         } else {
-          if (!video.controls) video.pause();
+          heroVideo.play().catch(function(){});
+          shield.style.display = 'none';
+          if (btn) btn.style.display = '';
         }
       });
-    }, { threshold: 0.3 });
-    observer.observe(video);
+    }
 
-    btn.addEventListener('click', function() {
-      btn.style.display = 'none';
-      video.muted       = false;
-      video.loop        = false;
-      video.controls    = true;
-      video.currentTime = 0;
-      video.play();
-      video.addEventListener('ended', function() {
-        video.controls    = false;
-        video.muted       = true;
-        video.loop        = true;
-        video.play();
-        btn.style.display = '';
-      }, { once: true });
-    });
+    // Play-Button: Ton, von vorne
+    if (btn) {
+      btn.addEventListener('click', function() {
+        btn.style.display = 'none';
+        if (shield) shield.style.display = 'none';
+        heroVideo.pause();
+        if (heroFrame) { heroFrame.src = SOUND_SRC; heroFrame.style.display = 'block'; }
+      });
+    }
+
+    // Egg: Politik einfrieren (aktueller Frame), Fun starten
+    if (eggBtn && stage) {
+      eggBtn.addEventListener('click', function() {
+        heroVideo.pause();
+        if (heroFrame) { heroFrame.src = ''; heroFrame.style.display = 'none'; }
+        if (btn) btn.style.display = 'none';
+        if (shield) shield.style.display = 'none';
+        stage.classList.add('show-fun');
+        if (funVideo) { funVideo.currentTime = 0; funVideo.play().catch(function(){}); }
+      });
+    }
+
+    // Zurück: Fun stoppen, Politik mit Ton starten (wie Play-Button)
+    if (backBtn && stage) {
+      backBtn.addEventListener('click', function() {
+        if (funVideo) { funVideo.pause(); funVideo.currentTime = 0; }
+        stage.classList.remove('show-fun');
+        heroVideo.pause();
+        if (heroFrame) { heroFrame.src = SOUND_SRC; heroFrame.style.display = 'block'; }
+        if (btn) btn.style.display = 'none';
+        if (shield) shield.style.display = 'none';
+      });
+    }
   })();
 
   // Show real images / hide placeholder when src is set

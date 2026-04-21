@@ -88,6 +88,7 @@ nav.scrolled {
 }
 .mobile-br { display:none; }
 .hero-name { font-family:var(--font-display); font-size:clamp(2.69rem,5.7vw,4.76rem); font-weight:900; line-height:1.0; margin-bottom:.9rem; }
+.hero-name-seo { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .hero-name em { font-style:italic; color:var(--stm-yellow); }
 .hero-subtitle { font-size:1.23rem; font-weight:300; line-height:1.78; color:rgba(255,255,255,.72); max-width:400px; margin-bottom:2.2rem; }
 .hero-cta-mobile-wrap { display:none; }

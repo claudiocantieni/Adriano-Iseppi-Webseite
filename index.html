@@ -20,6 +20,8 @@
   <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/playfair-normal.woff2" as="font" type="font/woff2" crossorigin>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,7 +88,10 @@
 
   <!-- Portrait — direkt in #hero, hinter Silhouette -->
   <div class="hero-portrait-box">
-    <img src="IMG_9830_2.jpg" alt="Adriano Iseppi – Kandidat Gemeindepräsident St. Moritz 2026">
+    <picture>
+      <source srcset="IMG_9830_2.webp" type="image/webp">
+      <img src="IMG_9830_2.jpg" alt="Adriano Iseppi – Kandidat Gemeindepräsident St. Moritz 2026" width="1440" height="1440" fetchpriority="high">
+    </picture>
   </div>
 
   <!-- CTA nach Portrait nur mobile -->
@@ -101,8 +106,14 @@
 
   <!-- Silhouette Dekoration unten -->
   <div class="hero-skyline-bar">
-    <img src="skyline1.png" alt="" class="skyline-top">
-    <img src="skyline2.png" alt="" class="skyline-bottom">
+    <picture>
+      <source srcset="skyline1.webp" type="image/webp">
+      <img src="skyline1.png" alt="" class="skyline-top" width="898" height="260">
+    </picture>
+    <picture>
+      <source srcset="skyline2.webp" type="image/webp">
+      <img src="skyline2.png" alt="" class="skyline-bottom" width="900" height="119">
+    </picture>
   </div>
 </section>
 
@@ -182,7 +193,10 @@
 
 <!-- INLINE FOTO BANNER -->
 <div class="inline-photo-banner">
-  <img src="Piz Mezdi 5.jpg" alt="Panorama Piz Mezdi – Oberengadin Graubünden" id="bannerPhoto" class="banner-img">
+  <picture>
+    <source srcset="Piz Mezdi 5.webp" type="image/webp">
+    <img src="Piz Mezdi 5.jpg" alt="Panorama Piz Mezdi – Oberengadin Graubünden" id="bannerPhoto" class="banner-img" width="1600" height="1200" loading="lazy">
+  </picture>
   <!--<div class="photo-banner-placeholder">
     <span class="ph-icon">📷</span>
     <span>Panoramafoto<br><small>Querformat, min. 1400 × 600 px</small></span>
@@ -205,7 +219,10 @@
       <!-- Grosses Portraitfoto links -->
       <div class="motivation-portrait">
         <!-- src="fotos/portrait.jpg" einfügen -->
-        <img src="IMG_9864_2_1.jpg" alt="Adriano Iseppi – Portrait Kandidatur Gemeindepräsident St. Moritz" id="motivPortrait">
+        <picture>
+          <source srcset="IMG_9864_2_1.webp" type="image/webp">
+          <img src="IMG_9864_2_1.jpg" alt="Adriano Iseppi – Portrait Kandidatur Gemeindepräsident St. Moritz" id="motivPortrait" width="1100" height="1650" loading="lazy">
+        </picture>
         <!--<div class="ph-placeholder">
           <span class="ph-icon">🖼</span>
           <span>Portraitfoto hier einfügen</span>
@@ -237,8 +254,10 @@
 <section class="single-photo-section">
   <div class="single-photo-wrap reveal reveal-delay-2">
     <picture>
+      <source media="(min-width:768px)" srcset="St.Moritz2.webp" type="image/webp">
       <source media="(min-width:768px)" srcset="St.Moritz2.jpg">
-      <img src="St.Moritz.jpg" alt="St. Moritz – Gemeinde im Oberengadin, Graubünden" id="singlePhoto">
+      <source srcset="St.Moritz.webp" type="image/webp">
+      <img src="St.Moritz.jpg" alt="St. Moritz – Gemeinde im Oberengadin, Graubünden" id="singlePhoto" width="1440" height="1430" loading="lazy">
     </picture>
     <div class="single-photo-overlay"></div>
   </div>

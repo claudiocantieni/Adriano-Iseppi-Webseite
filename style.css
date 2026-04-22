@@ -394,6 +394,9 @@ footer { margin-top:5rem; padding-top:2rem; border-top:1px solid rgba(255,255,25
   html, body { background:var(--stm-dark); }
   .safe-area-bottom { position:fixed; bottom:0; left:0; right:0; height:env(safe-area-inset-bottom); background:var(--stm-dark); z-index:9999; pointer-events:none; }
 
+  /* Hero overflow aufheben – iOS Safari clippt sonst den mobilen CTA */
+  #hero { overflow:visible; }
+  .hero-cta-mobile-wrap { position:relative; z-index:2; }
   /* Hero-Text kleiner */
   .hero-content { padding-top:calc(var(--nav-h) + env(safe-area-inset-top) + 2rem); padding-bottom:0.3rem; }
   .hero-name { font-size:clamp(2rem,10vw,2.8rem); }

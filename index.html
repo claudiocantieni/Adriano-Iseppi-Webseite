@@ -386,11 +386,9 @@
         <video id="heroVideo"
           src="https://vz-d82cdf0a-23c.b-cdn.net/da1656bb-ef6c-49cc-a04a-54eaffc18ccf/play_720p.mp4"
           muted playsinline loop preload="metadata"></video>
-        <iframe id="heroFrame" src="" style="display:none;"
-          data-src="https://iframe.mediadelivery.net/embed/642467/da1656bb-ef6c-49cc-a04a-54eaffc18ccf?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
-          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-          allowfullscreen="true"
-          title="Adriano Iseppi – Video"></iframe>
+        <video id="heroVideoSound"
+          src="https://vz-d82cdf0a-23c.b-cdn.net/da1656bb-ef6c-49cc-a04a-54eaffc18ccf/play_720p.mp4"
+          playsinline controls preload="none" style="display:none;"></video>
         <div class="video-shield" id="videoShield"></div>
         <button class="video-play-overlay" id="videoPlayBtn" aria-label="Mit Ton abspielen">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -548,55 +546,64 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   (function() {
-    const heroVideo = document.getElementById('heroVideo');
-    const heroFrame = document.getElementById('heroFrame');
-    const shield    = document.getElementById('videoShield');
-    const btn       = document.getElementById('videoPlayBtn');
-    const stage     = document.querySelector('.video-stage');
-    const eggBtn    = document.getElementById('eggBtn');
-    const backBtn   = document.getElementById('backBtn');
-    const funVideo  = document.getElementById('funVideo');
+    const heroVideo      = document.getElementById('heroVideo');
+    const heroVideoSound = document.getElementById('heroVideoSound');
+    const shield         = document.getElementById('videoShield');
+    const btn            = document.getElementById('videoPlayBtn');
+    const stage          = document.querySelector('.video-stage');
+    const eggBtn         = document.getElementById('eggBtn');
+    const backBtn        = document.getElementById('backBtn');
+    const funVideo       = document.getElementById('funVideo');
     if (!heroVideo) return;
 
-    const SOUND_SRC = heroFrame ? heroFrame.dataset.src : '';
+    let soundActive = false;
 
-    // Autoplay stumm wenn Sektion sichtbar, pause wenn nicht
     const section = document.querySelector('.video-section');
     if (section) {
       const obs = new IntersectionObserver(function(entries) {
-        entries[0].isIntersecting ? heroVideo.play().catch(function(){}) : heroVideo.pause();
+        if (entries[0].isIntersecting) {
+          if (!soundActive) heroVideo.play().catch(function(){});
+        } else {
+          heroVideo.pause();
+          if (heroVideoSound) heroVideoSound.pause();
+        }
       }, { threshold: 0.25 });
       obs.observe(section);
     }
 
-    // Shield-Klick: im Normal-Zustand → Play mit Ton; nach Zurück → Loop fortsetzen
+    function playWithSound() {
+      soundActive = true;
+      if (btn) btn.style.display = 'none';
+      if (shield) shield.style.display = 'none';
+      heroVideo.pause();
+      heroVideo.style.display = 'none';
+      if (heroVideoSound) {
+        heroVideoSound.style.display = 'block';
+        heroVideoSound.currentTime = 0;
+        heroVideoSound.play().catch(function(){});
+      }
+    }
+
+    function resetToMuted() {
+      soundActive = false;
+      if (heroVideoSound) { heroVideoSound.pause(); heroVideoSound.style.display = 'none'; }
+      heroVideo.style.display = '';
+      heroVideo.muted = true;
+    }
+
     if (shield) {
       shield.addEventListener('click', function() {
-        if (btn && btn.style.display !== 'none') {
-          btn.click();
-        } else {
-          heroVideo.play().catch(function(){});
-          shield.style.display = 'none';
-          if (btn) btn.style.display = '';
-        }
+        if (btn && btn.style.display !== 'none') { btn.click(); }
       });
     }
 
-    // Play-Button: Ton, von vorne
     if (btn) {
-      btn.addEventListener('click', function() {
-        btn.style.display = 'none';
-        if (shield) shield.style.display = 'none';
-        heroVideo.pause();
-        if (heroFrame) { heroFrame.src = SOUND_SRC; heroFrame.style.display = 'block'; }
-      });
+      btn.addEventListener('click', playWithSound);
     }
 
-    // Egg: Politik einfrieren (aktueller Frame), Fun starten
     if (eggBtn && stage) {
       eggBtn.addEventListener('click', function() {
-        heroVideo.pause();
-        if (heroFrame) { heroFrame.src = ''; heroFrame.style.display = 'none'; }
+        resetToMuted();
         if (btn) btn.style.display = 'none';
         if (shield) shield.style.display = 'none';
         stage.classList.add('show-fun');
@@ -604,15 +611,11 @@
       });
     }
 
-    // Zurück: Fun stoppen, Politik mit Ton starten (wie Play-Button)
     if (backBtn && stage) {
       backBtn.addEventListener('click', function() {
         if (funVideo) { funVideo.pause(); funVideo.currentTime = 0; }
         stage.classList.remove('show-fun');
-        heroVideo.pause();
-        if (heroFrame) { heroFrame.src = SOUND_SRC; heroFrame.style.display = 'block'; }
-        if (btn) btn.style.display = 'none';
-        if (shield) shield.style.display = 'none';
+        playWithSound();
       });
     }
   })();

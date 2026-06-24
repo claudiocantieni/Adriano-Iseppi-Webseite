@@ -144,7 +144,10 @@
 <section id="fokus">
   <div class="container">
     <p class="section-label reveal">temas da focus</p>
-    <h2 class="section-title reveal reveal-delay-1">Schwerpunkte</h2>
+    <div class="fokus-heading-row">
+      <h2 class="section-title reveal reveal-delay-1">Schwerpunkte</h2>
+      <button class="fokus-toggle-all" id="akkToggleAll">Alle zuklappen</button>
+    </div>
     <div class="fokus-accordion reveal">
 
       <div class="akk-item open">
@@ -500,6 +503,21 @@ Dafür möchte ich Verantwortung übernehmen. Mit Führungsstärke, Leidenschaft
   burger.addEventListener('click', () => { navLinks.classList.toggle('open'); burger.classList.toggle('active'); });
   function closeMenu() { navLinks.classList.remove('open'); burger.classList.remove('active'); }
   document.addEventListener('click', (e) => { if (!nav.contains(e.target)) closeMenu(); });
+
+  // Accordion toggle-all
+  const akkToggleAll = document.getElementById('akkToggleAll');
+  if (akkToggleAll) {
+    akkToggleAll.addEventListener('click', () => {
+      const allItems = document.querySelectorAll('.akk-item');
+      const anyOpen = [...allItems].some(el => el.classList.contains('open'));
+      allItems.forEach(item => {
+        const btn = item.querySelector('.akk-header');
+        if (anyOpen) { item.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+        else         { item.classList.add('open');    btn.setAttribute('aria-expanded','true');  }
+      });
+      akkToggleAll.textContent = anyOpen ? 'Alle aufklappen' : 'Alle zuklappen';
+    });
+  }
 
   // Accordion
   document.querySelectorAll('.akk-header').forEach(btn => {

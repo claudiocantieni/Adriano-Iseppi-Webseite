@@ -25,7 +25,7 @@
 html { scroll-behavior: smooth; font-size: 18px; }
 body { font-family: var(--font-body); background: var(--stm-white); color: var(--stm-blue); overflow-x: hidden; }
 p, h1, h2, h3, h4, li, blockquote, .fc-pill, .akk-title, .person-cat-key, .hero-subtitle { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; hyphenate-limit-chars: 12 5 5; hyphenate-limit-lines: 2; }
-.fokus-accordion p, .fokus-accordion .akk-title, .fokus-accordion .akk-body { hyphens: none; -webkit-hyphens: none; }
+.fokus-accordion .akk-title { hyphens: none; -webkit-hyphens: none; }
 img, video, iframe { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
@@ -199,6 +199,10 @@ nav.scrolled {
 /* ════ FOKUS ═════════════════════════════════════════ */
 #fokus { padding:6.5rem 0; background:var(--stm-light-gray); }
 #fokus .section-label { color:var(--stm-yellow-dark); }
+.fokus-heading-row { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.fokus-toggle-all { flex-shrink:0; background:none; border:1.5px solid rgba(42,55,113,.15); border-radius:4px; padding:.35rem .9rem; font-family:var(--font-body); font-size:.78rem; font-weight:600; letter-spacing:.04em; color:rgba(42,55,113,.45); cursor:pointer; transition:border-color .2s, background .2s, color .2s; }
+.fokus-toggle-all:hover { border-color:var(--stm-blue); background:rgba(42,55,113,.06); }
+@media (max-width:767px) { .fokus-heading-row { flex-direction:column; align-items:flex-start; gap:.6rem; } .fokus-toggle-all { align-self:flex-end; font-size:.65rem; } .fokus-accordion { margin-top:1rem; } }
 
 /* Accordion */
 .fokus-accordion { margin-top:2.5rem; display:flex; flex-direction:column; gap:.6rem; }

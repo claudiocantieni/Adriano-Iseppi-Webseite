@@ -202,7 +202,7 @@ nav.scrolled {
 .fokus-heading-row { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
 .fokus-toggle-all { flex-shrink:0; background:none; border:1.5px solid rgba(42,55,113,.15); border-radius:4px; padding:.35rem .9rem; font-family:var(--font-body); font-size:.78rem; font-weight:600; letter-spacing:.04em; color:rgba(42,55,113,.45); cursor:pointer; transition:border-color .2s, background .2s, color .2s; }
 .fokus-toggle-all:hover { border-color:var(--stm-blue); background:rgba(42,55,113,.06); }
-@media (max-width:767px) { .fokus-heading-row { flex-direction:column; align-items:flex-start; gap:.6rem; } .fokus-toggle-all { align-self:flex-end; font-size:.65rem; padding:.35rem .27rem; } .fokus-accordion { margin-top:.4rem; } }
+@media (max-width:767px) { .fokus-heading-row { position:relative; flex-direction:column; align-items:flex-start; gap:0; } .fokus-toggle-all { position:absolute; right:0; bottom:0; font-size:.65rem; padding:.35rem .27rem; } .fokus-accordion { margin-top:.8rem; } }
 
 /* Accordion */
 .fokus-accordion { margin-top:2.5rem; display:flex; flex-direction:column; gap:.6rem; }
